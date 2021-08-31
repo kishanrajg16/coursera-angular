@@ -26,8 +26,8 @@
     <p>Display the list of comments here</p>
     </div> -->
 
-    <mat-list fxFlex="40" *ngIf="dish">
-        <h1 matline>Comments</h1>
+    <!-- <mat-list fxFlex="40" *ngIf="dish">
+        <h2 matLine>Comments</h2>
         <mat-list-item *ngFor="let comment of dish.comments; let i = index">
             <p matLine>{{ dish.comments[i].comment }}</p>
             <p matLine>Rating: {{ dish.comments[i].rating }} stars</p>
@@ -36,5 +36,20 @@
                 {{ dish.comments[i].date | date: "mediumDate" }}
             </p>
         </mat-list-item>
+    </mat-list> -->
+
+    <!-- Simple and Clear Way below:  -->
+
+    <mat-list fxFlex="40" *ngIf="dish">
+        <h2 matLine>Comments</h2>
+        <mat-list-item *ngFor="let comment of dish.comments">
+            <p matLine>{{ comment.comment }}</p>
+            <p matLine>Rating: {{ comment.rating }} stars</p>
+            <p matLine>
+                -- {{ comment.author }},
+                {{ comment.date | date: "mediumDate" }}
+            </p>
+        </mat-list-item>
     </mat-list>
+
 </div>
